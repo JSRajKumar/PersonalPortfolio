@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3> Welcome to my Blog  </h3>
+
+<h4>Raj has written {{ BlogDetails.count }} Blog{{  BlogDetails.count|pluralize }}</h4>
+
+{% for BlogDetail in BlogDetails %}
+<br>
+
+<!-- Method 1: calling BLog information
+    <h3><a href= "{{ BlogDetail.id }}">{{  BlogDetail.Title  }}</a></h3> 
+-->
+
+<!-- Method 2: calling BLog information -->
+
+<h5><a href= "{% url 'Blog:Detail' BlogDetail.id %}">{{  BlogDetail.Title  }}</a></h5> 
+<h6> Blog written on -- {{ BlogDetail.BlogDate|date:'F jS Y'}} --</h6>
+
+{% endfor %}
+{% endblock %}

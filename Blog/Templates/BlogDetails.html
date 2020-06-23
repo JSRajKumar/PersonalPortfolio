@@ -1,0 +1,7 @@
+{% extends 'Base.html'%}
+{% block content %}
+<br><br><br>
+<h4>{{ Bloginfo.Title }}</h4>
+<h6>{{  Bloginfo.Description|truncatechars:100}} </h6>
+<h6>{{  Bloginfo.BlogDate|date:'M d Y'|upper  }}  </h6>
+{% endblock %}

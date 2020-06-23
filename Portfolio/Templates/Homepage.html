@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% extends 'base.html' %}
+
+    {% block content %}
+    
+    <div class="container"><h4>Welcome to JSRaj Portfolio !</h4></div>
+    {% load static %}
+
+    <!--
+    <a href="{% url 'Blog:all_Blog' %}">Click to view My Blog</a> <br><br>
+    <a href="{% static 'Files/TestFile.pdf'  %}">UserInformation</a> <br><br>  -->
+    
+    <center><img src="{% static 'Files/FavPhoto.jpg' %}" height="400" width="400"></img></center><br>     
+    
+    {% for Portfoliomdl in PortfolioModels %}
+    
+    <div class="alert alert-success"><h5>{{ Portfoliomdl.title }} - {{ Portfoliomdl.description }}</h5></div>
+    <img src="{{ Portfoliomdl.image.url }}" height="250" width = "250"/>
+    
+    {% if Portfoliomdl.urlfield  %}
+    
+    <br>
+    <a href= "{{ Portfoliomdl.urlfield }}">Project Informtation</a>
+    
+    {% endif %}
+    
+    
+    {% endfor %}
+
+    {% endblock %}
